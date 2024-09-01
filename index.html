@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Dietas</title>
+    
+    <link rel="stylesheet" href="formscalres.css">
+    <link rel="stylesheet" href="formsdiet.css">
+    <link rel="stylesheet" href="formstexto.css">
+
+    <link rel="icon" href="icon_cal.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="menu-toggle" id="menuToggle">
+            <h1>SmartDietas</h1>
+            <div class="menu" id="menu">
+                <a href="index.html" class="menu-item">Inicio</a>
+                <a href="sobre.html" class="menu-item">Sobre</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="calculator-result-container">
+            <div class="calculator">
+                <div class="gender-buttons">
+                    <button class="gender-btn" onclick="selectGender('male')">♂️</button>
+                    <button class="gender-btn" onclick="selectGender('female')">♀️</button>
+                </div>
+                <div class="display">
+                    <input type="text" id="display" readonly placeholder="Peso (kg)">
+                    <input type="text" id="height" readonly placeholder="Altura (m)">
+                </div>
+                <div class="buttons">
+                    <button class="btn" onclick="clearInputs()">C</button>
+                    <button class="btn" onclick="appendToDisplay('7')">7</button>
+                    <button class="btn" onclick="appendToDisplay('8')">8</button>
+                    <button class="btn" onclick="appendToDisplay('9')">9</button>
+                    <button class="btn" id="height-button" onclick="setInput('height')">Altura</button>
+                    <button class="btn" onclick="appendToDisplay('4')">4</button>
+                    <button class="btn" onclick="appendToDisplay('5')">5</button>
+                    <button class="btn" onclick="appendToDisplay('6')">6</button>
+                    <button class="btn" onclick="setInput('weight')">Peso</button>
+                    <button class="btn" onclick="appendToDisplay('1')">1</button>
+                    <button class="btn" onclick="appendToDisplay('2')">2</button>
+                    <button class="btn" onclick="appendToDisplay('3')">3</button>
+                    <button class="btn" onclick="backspace()">&#9003;</button>
+                    <button class="btn" onclick="appendToDisplay('0')">0</button>
+                    <button class="btn" onclick="appendToDisplay('.')">.</button>
+                    <button class="btn btn-pizza" onclick="toggleBMR()">🍕</button>
+                    <button class="btn btn-equal" onclick="calculateIMC()">Calcular</button>
+                </div>
+            </div>
+            <div class="result-menu" id="resultMenu">
+                <div class="oms-message">
+                    <p>De acordo com a OMS:</p>
+                    <p>IMC adequado para um adulto saudável é entre 18,5 e 24,9.</p>
+                </div>
+                <p id="errorText" class="hidden"></p> <!-- Mensagem de erro -->
+                <div class="result">
+                    <h2 id="resultTitle">Resultado:</h2>
+                    <p id="resultText">Aguardando cálculo...</p>
+                    <div class="result-display-container">
+                        <div id="resultIMC" class="result-display">IMC: <div id="countIMC" class="count-display"></div></div>
+                        <div id="resultTMB" class="result-display">TMB: <div id="countTMB" class="count-display"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="diet-section" id="dietSection">
+            <h2>Plano de Dieta</h2>
+            <p class="fade-in-text">
+                Utilize a calculadora de calorias abaixo para saber exatamente como balancear sua dieta. Esta ferramenta permite que você calcule as calorias necessárias para manter um equilíbrio saudável, considerando suas refeições diárias e a quantidade total de calorias consumidas. É ideal para quem deseja manter ou perder peso de forma eficiente.
+            </p>
+
+    <div class="button-container">
+        <button class="toggle-info" id="toggleInfoButton">Como utilizar a calculadora</button>
+        
+    </div>
+    
+    <div class="additional-info" id="additionalInfo">
+        <h3>Como utilizar a calculadora</h3>
+        <p class="reveal-text">
+            1. **Adicione suas refeições**: Utilize os botões para adicionar as refeições e a quantidade de cada alimento que você consumiu durante o dia.<br>
+            2. **Selecione os alimentos**: Escolha os alimentos das listas fornecidas. Caso não encontre o alimento desejado, adicione manualmente com a quantidade em gramas.<br>
+            3. **Visualize o total de calorias**: A calculadora exibirá o total de calorias consumidas no dia, ajudando você a monitorar sua ingestão.<br>
+            4. **Revise suas refeições**: Se necessário, ajuste as quantidades ou remova refeições para refinar suas necessidades calóricas.<br>
+            Esta calculadora é uma ferramenta útil para gerenciar sua dieta e alcançar seus objetivos de saúde.
+        </p>
+    </div>
+    
+    
+        
+            <div id="dietMenu" class="diet-menu">
+                <h2>Calculadora de Calorias</h2>
+                <div class="controls">
+                    <button id="increaseMealBtn" class="control-btn">+</button>
+                    <span id="mealCountText">Quantidade de Refeições:</span>
+                    <span id="mealCount">1</span>
+                    <button id="decreaseMealBtn" class="control-btn">-</button>
+                </div>
+                <div class="meal-selection">
+                    <label for="mealSelector">Selecionar Refeição:</label>
+                    <select id="mealSelector">
+                        <!-- As opções serão preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="controls">
+                    <button id="increaseFoodBtn" class="control-btn">+</button>
+                    <span id="foodCountText">Quantidade de Alimentos:</span>
+                    <span id="foodCount"></span>
+                    <button id="decreaseFoodBtn" class="control-btn">-</button>
+                </div>
+                <div class="meal-selection">
+                    <label for="foodSelector">Selecionar Alimento:</label>
+                    <select id="foodSelector">
+                        <!-- As opções serão preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="meal-selection">
+                    <label for="foodQuantity">Quantidade (g):</label>
+                    <input type="number" id="foodQuantity" min="1" max="9999" value="100">
+                </div>
+                <!-- Botões lado a lado -->
+                <div class="button-container">
+                    <button id="addFoodBtn" class="btn">Adicionar Alimento</button>
+                    <button id="print-meal" class="btn-diet">Imprimir Refeição</button>
+                </div>
+                
+                <div id="mealsContainer" class="meals-container">
+                    <!-- Alimentos adicionados serão exibidos aqui -->
+                </div>
+                
+                <div class="total-calories">
+                    <h3>Total de Calorias do Dia: <span id="totalCalories">0</span> kcal</h3>
+                </div>
+                
+            </div>
+            <div class="sources-info" id="sourcesInfo">
+                <h3>Fontes dos Valores Nutricionais</h3>
+                <p class="custom-typing-text">Abaixo estão as fontes utilizadas para os valores nutricionais dos alimentos:</p>
+                <ul>
+                    <li><a href="https://fdc.nal.usda.gov/" target="_blank">USDA FoodData Central</a></li>
+                    <li><a href="https://www.nutritionvalue.org/" target="_blank">NutritionValue.org</a></li>
+                    
+                </ul>
+            </div>
+            <button class="toggle-info" id="toggleSourcesButton">Fontes dos Valores Nutricionais</button>
+            <div class="sources-info" id="sourcesInfo">
+                
+                <h3>Fontes dos Valores Nutricionais</h3>
+                <p>Abaixo estão as fontes utilizadas para os valores nutricionais dos alimentos:</p>
+                <ul>
+                    <li><a href="https://fdc.nal.usda.gov/" target="_blank">USDA FoodData Central</a></li>
+                    <li><a href="https://www.nutritionvalue.org/" target="_blank">NutritionValue.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Feito por <a href="https://github.com/Andredevfl" target="_blank" class="footer-link">
+                <img src="tipo_cartao.png" alt="Link Icon" class="footer-image">
+            </a></p>
+        </footer>
+    </div>
+
+
+    
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="diet.js"></script>
+<script src="escripts.js"></script>
+<script src="imprimi.js"></script>
+</body>
+</html>
