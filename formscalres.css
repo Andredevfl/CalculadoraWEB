@@ -1,0 +1,390 @@
+/* Estilização geral do corpo da página */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 180vh;
+    background: url('saudeC.jpg') no-repeat center top;
+    background-size: cover;
+    font-family: 'Jersey 10', Arial, sans-serif;
+    cursor: url('pselec2.ico') 20 20, auto; /* Define o cursor com ponto de clique ajustado */
+    
+}
+
+
+
+
+/* Estilo do cabeçalho fixo */
+.header {
+    width: 100%;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    padding: 10px;
+    text-align: right;
+    z-index: 1000; 
+    background: transparent; 
+}
+
+.menu-toggle {
+    position: relative; 
+    display: inline-block; 
+    z-index: 1000; 
+}
+
+/* Estilo do título */
+.menu-toggle h1 {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    font-size: 2em;
+    color: #00ff00;
+    margin: 0; /* Remove margens para alinhamento correto */
+    padding: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    cursor: pointer;
+}
+
+/* Estilo do menu */
+.menu {
+    display: none; /* Esconde o menu por padrão */
+    position: absolute; /* Posiciona o menu de forma absoluta */
+    top: 100%; /* Posiciona o menu abaixo do título */
+    right: 0; /* Alinha o menu à direita */
+    background-color: #333; /* Cor de fundo do menu */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do menu */
+    z-index: 2000; /* Aumenta o z-index para garantir que o menu apareça acima do conteúdo */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Adiciona uma transição para a opacidade */
+}
+
+.menu.visible {
+    display: block; /* Mostra o menu quando a classe visible é adicionada */
+    opacity: 1; /* Torna o menu visível */
+}
+
+.menu-item {
+    color: #fff; /* Cor do texto dos itens do menu */
+    text-decoration: none; /* Remove a decoração do texto */
+    display: block; 
+    padding: 8px; 
+    border-radius: 5px; 
+    margin-bottom: 5px; 
+}
+
+.menu-item:hover {
+    background-color: #444; 
+}
+
+/* Container que envolve a calculadora e o menu de resultado */
+.calculator-result-container {
+    display: flex;
+    align-items: stretch;
+    gap: 12px; /* Espaçamento entre a calculadora e o menu de resultado */
+    overflow-y: auto;
+    padding-top: 60px;
+}
+
+/* Estilo da calculadora */
+.calculator {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.calculator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo menos transparente, ajustado para 0.6 */
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Estilo dos botões de gênero */
+.gender-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.gender-btn {
+    background: #e0e0e0;
+    position: relative;
+    z-index: 1000;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.gender-btn:hover {
+    background: #c0c0c0;
+}
+
+.gender-btn.selected {
+    background: #00ff00;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Estilo do conteúdo principal dentro da calculadora */
+.main-content {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px; /* Espaço acima do conteúdo principal para separar do cabeçalho */
+}
+
+/* Estilo do display da calculadora */
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    border-bottom: 2px solid #333;
+}
+
+#display, #height {
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: white;
+    text-align: right;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos botões da calculadora */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.btn {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #555;
+}
+
+.btn-equal {
+    grid-column: span 4;
+    background: #ff5722;
+    color: white;
+}
+
+.btn-equal:hover {
+    background: #fff;
+    color: #ff5722;
+}
+
+.btn-retry {
+    grid-column: span 2;
+    background: #00796b;
+    color: white;
+}
+
+.btn-retry:hover {
+    background: #004d40;
+}
+
+.btn:active {
+    background: #444;
+}
+
+/* Estilo do menu de resultado */
+.result-menu {
+    width: 60%;
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do display do resultado */
+.result-display {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    color: #00ff00;
+    white-space: pre-line;
+    display: block;
+    overflow: hidden;
+    align-items: center;
+}
+
+.result-display-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.count-display {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+/* Estilo do display do resultado IMC */
+#resultIMC {
+    font-size: 1.5em;
+    color: #00ff00;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Estilo do display do resultado TMB */
+#resultTMB {
+    font-size: 1.5em;
+    color: #00ff00;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Estilo da mensagem de mudança de modo */
+.oms-message {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    color: #00ff00;
+    margin-bottom: 20px;
+}
+
+.oms-message p {
+    margin: 0;
+}
+
+/* Estilo do título do resultado */
+.result h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #00ff00;
+}
+
+/* Estilo do parágrafo do resultado */
+.result p {
+    font-size: 1.2em;
+    margin: 0;
+    white-space: pre-line;
+    display: inline-block;
+    overflow: hidden;
+    animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+    color: #00ff00;
+}
+
+/* Animação de digitação */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Animação de piscar do cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
+
+/* Estilo para esconder elementos */
+.hidden {
+    display: none;
+}
+
+/* Estilo para o texto de erro */
+#errorText {
+    color: #ff0000;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    overflow: hidden;
+    display: inline-block;
+    border-right: 2px solid #ff0000;
+    animation: blink-caret .75s step-end infinite;
+}
+
+/* Estilo para o botão Mostrar Dieta */
+.btn-diet {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+}
+
+.btn-diet:hover {
+    background: #e64a19;
+}
+
+/* Estilos para o contêiner de refeições concluídas */
+.meals-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+/* Estilos para cada contêiner de refeição */
+.meal-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: calc(33% - 20px); /* Três refeições por linha com espaçamento */
+    box-sizing: border-box;
+}
+
+/* Estilos adicionais para garantir boa aparência */
+.meal-container h3 {
+    margin-top: 0;
+}
+
+.meal-container div {
+    margin-bottom: 5px;
+}
+
+
+

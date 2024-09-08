@@ -1,0 +1,342 @@
+* {
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho total do elemento */
+}
+
+/* Estilo do cabeçalho fixo */
+.header {
+    width: 100%;
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Alinha o cabeçalho ao topo da página */
+    padding: 10px;
+    text-align: right; /* Alinha o texto à direita */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros conteúdos */
+    background: transparent; /* Torna o fundo transparente para não cobrir o conteúdo */
+}
+
+/* Estilo do botão de menu */
+.menu-toggle {
+    position: relative; /* Define o posicionamento relativo para o botão de menu */
+    display: inline-block; /* Alinha o menu toggle */
+    z-index: 1000; /* Garante que o menu de cima esteja acima de outros elementos */
+}
+
+.menu-toggle h1 {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    font-size: 2em;
+    color: #00ff00;
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    width: 220px; /* Ajuste a largura conforme necessário */
+    height: 80px; /* Ajuste a altura conforme necessário */
+    text-align: center;
+    line-height: 60px; /* Ajuste o line-height para centralizar verticalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura */
+}
+
+/* Estilo do menu */
+.menu {
+    font-family: 'Jersey 10', Arial, sans-serif;
+    display: none; /* Esconde o menu por padrão */
+    position: absolute; /* Posiciona o menu de forma absoluta */
+    top: 100%; /* Posiciona o menu abaixo do título */
+    right: 0; /* Alinha o menu à direita */
+    background-color: #333; /* Cor de fundo do menu */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do menu */
+    z-index: 2000; /* Aumenta o z-index para garantir que o menu apareça acima do conteúdo */
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transições suaves */
+}
+
+.menu.visible {
+    display: block; /* Mostra o menu quando a classe visible é adicionada */
+    opacity: 1; /* Torna o menu visível */
+    visibility: visible; /* Torna o menu visível */
+}
+
+/* Estilo dos itens do menu */
+.menu-item {
+    color: #fff; /* Cor do texto dos itens do menu */
+    text-decoration: none; /* Remove a decoração do texto */
+    display: block; /* Exibe os itens como blocos */
+    padding: 8px; /* Espaçamento interno dos itens do menu */
+    border-radius: 5px; /* Borda arredondada dos itens do menu */
+    margin-bottom: 5px; /* Espaço abaixo dos itens do menu */
+}
+
+.menu-item:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o plano de fundo da página com desfoque */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', Arial, sans-serif; /* Define a fonte padrão */
+    position: relative; /* Necessário para o pseudo-elemento ::before */
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
+}
+
+/* Pseudo-elemento para aplicar desfoque somente ao plano de fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('saudeC.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ajusta o plano de fundo para cobrir o elemento */
+    z-index: -1; /* Coloca o plano de fundo atrás do conteúdo */
+    animation: blurIn 1.5s ease-out forwards; /* Animação de desfoque */
+}
+
+/* Estilo para a seção sobre */
+.sobre-section {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+    animation: openFromTop 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+/* Estilo para a seção de fatos */
+.fatos-section {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+    display: none; /* Começa oculta */
+    opacity: 0; /* Inicia invisível para o efeito de fade-in */
+    animation: fadeIn 1s ease-out forwards; /* Efeito de fade-in */
+}
+
+/* Estilo para o botão que mostra a seção de fatos */
+.show-facts-btn {
+    position: fixed;
+    left: 30px; /* Espaçamento do lado esquerdo */
+    top: 50%; /* Centraliza verticalmente na página */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    background-color: #ff5722; /* Cor inicial do botão */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transição suave */
+    z-index: 1000; /* Garante que o botão fique acima do conteúdo */
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7); /* Brilho inicial */
+}
+
+/* Animação de brilho */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 87, 34, 1);
+    }
+    150% {
+        box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    }
+}
+
+/* Efeito de brilho contínuo */
+.show-facts-btn {
+    animation: glow 1.5s infinite; /* Aplica a animação de brilho */
+}
+
+/* Efeito ao passar o mouse */
+.show-facts-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Efeito ao clicar (água e transformação de cor) */
+.show-facts-btn:active {
+    background-color: #00ff00; /* Cor verde do título */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Brilho verde ao clicar */
+    transform: scale(0.95); /* Efeito de pressionar */
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+/* Efeito de água ao clicar */
+@keyframes waterEffect {
+    0% {
+        background-color: #ff5722; /* Cor inicial */
+    }
+    50% {
+        background-color: #00ff00; /* Cor verde do título */
+    }
+    100% {
+        background-color: #ff5722; /* Volta para a cor inicial */
+    }
+}
+
+/* Aplicar a animação de efeito de água */
+.show-facts-btn:active {
+    animation: waterEffect 0.4s forwards; /* Animação de efeito de água */
+}
+
+/* Animação de abertura de cima para baixo para a primeira seção */
+@keyframes openFromTop {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px; /* Ajuste para se adequar ao conteúdo */
+        opacity: 1;
+    }
+}
+
+/* Efeito de fade-in para a seção de fatos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação de desfoque de entrada */
+@keyframes blurIn {
+    from {
+        filter: blur(2px);
+    }
+    to {
+        filter: blur(10px);
+    }
+}
+
+/* Animação de "espocar balão" */
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Aplica o efeito quando a seção é ocultada */
+.fatos-section.hidden {
+    animation: popEffect 0.6s ease-out;
+    opacity: 0;
+    display: none;
+}
+
+
+
+.fatos-section a {
+    color: #ff5722; /* Cor laranja para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Adiciona o efeito de negrito ao texto do link */
+    font-size: 1em; /* Tamanho da fonte para garantir consistência */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.fatos-section a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+
+
+.fatos-section .fatos-icon {
+    width: 5px; /* Define a largura do ícone, semelhante ao tamanho de um emoji */
+    height: 5px; /* Define a altura do ícone */
+    margin-left: 8px; /* Espaço entre o texto e a imagem */
+    vertical-align: middle; /* Alinha verticalmente com o texto */
+    border-radius: 50%; /* Torna a imagem circular, se desejado */
+    display: inline-block; /* Garante que a imagem se alinhe ao lado do texto */
+}
+
+/* Estilo para o link com brilho ao passar o mouse */
+.highlight-link {
+    color: #fff; /* Cor do texto do link */
+    text-decoration: none; /* Remove a decoração padrão do link */
+    transition: color 0.3s, text-shadow 0.3s; /* Transições suaves para cor e brilho */
+}
+
+.highlight-link:hover {
+    color: #00ff00; /* Cor verde para o efeito de brilho */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00; /* Brilho verde ao passar o mouse */
+}
+
+/* Remove o sublinhado ao clicar */
+.highlight-link:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+}   
+
+/* Estilo para o rodapé */
+.footer {
+    background-color: rgba(51, 51, 51, 0.9); /* Cor de fundo escura com 10% de transparência */
+    color: #fff; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    position: relative; /* Para garantir que o rodapé se posicione corretamente */
+    bottom: 0;
+    width: 100%;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para destacar o rodapé */
+    margin: 20px auto; /* Espaçamento externo */
+    max-width: 800px; /* Limita a largura para melhor controle do layout */
+    
+}
+
+/* Estilo para o parágrafo no rodapé */
+.footer p {
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Estilo para o link no rodapé */
+.footer-link {
+    color: #00ff00; 
+    text-decoration: none; /* Remove a decoração padrão do link */
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Alinha verticalmente o conteúdo */
+    margin-left: 5px; /* Espaçamento horizontal entre o texto e a imagem */
+}
+
+/* Estilo para as imagens no rodapé */
+.footer-image {
+    width: 95px; 
+    height: 60px;
+    margin-right: 5px; /* Espaçamento horizontal entre a imagem e o texto */
+    border-radius: 50%;
+}
+
+/* Estilo para o link ao passar o mouse */
+.footer-link:hover {
+    text-decoration: underline; /* Sublinha o texto ao passar o mouse */
+}
+
+.footer-link:active .footer-image {
+    content: url('tipo_cartao_light.png'); /* Troca a imagem ao clicar */
+}

@@ -1,0 +1,180 @@
+
+.diet-section {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    max-width: 800px; /* Limita a largura para melhor controle do layout */
+    margin: 30px auto; /* Centraliza a seção horizontalmente */
+    position: relative; /* Necessário para o efeito de revelação */
+    overflow: hidden; 
+}
+
+/* Estilo para os títulos dentro da seção */
+.diet-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para os parágrafos dentro da seção */
+.diet-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Container para os botões de toggle */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Alinha os botões verticalmente */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+
+/* Estilo para os botões de toggle */
+.toggle-info {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+.toggle-info:hover {
+    background: #e64a19;
+}
+
+/* Estilo para a parte adicional que será oculta por padrão */
+.additional-info, .sources-info {
+    display: none; /* Inicialmente oculta */
+    margin-top: 20px;
+    position: relative; /* Necessário para o efeito de revelação */
+    
+}
+
+/* Estilo para os títulos dentro da parte adicional e fontes */
+.additional-info h3, .sources-info h3 {
+    font-size: 1.4em;
+}
+
+/* Estilo para os parágrafos dentro da parte adicional e fontes */
+.additional-info p, .sources-info p {
+    font-size: 0.8em; /* Ajusta o tamanho da fonte dos parágrafos conforme necessário */
+    margin: 0 0 15px 0; /* Garante que haja espaço adequado entre os parágrafos */
+    word-wrap: break-word; /* Permite quebra de linha dentro de palavras longas */
+   
+}
+
+
+.additional-info {
+    font-size: 0.9em; /* Ajusta o tamanho da fonte da seção */
+}
+
+/* Estilo para os links das fontes */
+.sources-info a {
+    color: #ff5722;
+    text-decoration: none;
+}
+
+.sources-info a:hover {
+    text-decoration: underline;
+}
+
+/* Definindo a animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplica o efeito de fade-in ao texto desejado */
+.fade-in-text {
+    animation: fadeIn 2s ease-out; /* Ajuste a duração e o efeito de animação conforme necessário */
+}
+
+@keyframes reveal-text {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Estilo para o texto com efeito de revelação */
+.reveal-text {
+    display: block; /* Ajusta para bloco para lidar com o quebra de linha */
+    white-space: normal; /* Permite quebras de linha */
+    overflow: hidden;
+    animation: reveal-text 4s ease-out forwards;
+    font-size: 0.9em; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+/* Estilo para o rodapé */
+.footer {
+    background-color: rgba(51, 51, 51, 0.9); /* Cor de fundo escura com 10% de transparência */
+    color: #fff; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    position: relative; /* Para garantir que o rodapé se posicione corretamente */
+    bottom: 0;
+    width: 100%;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para destacar o rodapé */
+    margin: 20px auto; /* Espaçamento externo */
+    max-width: 800px; /* Limita a largura para melhor controle do layout */
+    
+}
+
+/* Estilo para o parágrafo no rodapé */
+.footer p {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    margin: 0; /* Remove a margem padrão do parágrafo */
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Alinha verticalmente o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+/* Estilo para o link no rodapé */
+.footer-link {
+    color: #00ff00; /* Cor do link */
+    text-decoration: none; /* Remove a decoração padrão do link */
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Alinha verticalmente o conteúdo */
+    margin-left: 5px; /* Espaçamento horizontal entre o texto e a imagem */
+}
+
+/* Estilo para as imagens no rodapé */
+.footer-image {
+    width: 95px; /* Largura das imagens */
+    height: 60px; /* Altura das imagens */
+    margin-right: 5px; /* Espaçamento horizontal entre a imagem e o texto */
+    border-radius: 50%;
+}
+
+/* Estilo para o link ao passar o mouse */
+.footer-link:hover {
+    text-decoration: underline; /* Sublinha o texto ao passar o mouse */
+}
+
+.footer-link:active .footer-image {
+    content: url('tipo_cartao_light.png'); /* Troca a imagem ao clicar */
+}

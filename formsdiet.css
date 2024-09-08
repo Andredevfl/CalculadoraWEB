@@ -1,0 +1,197 @@
+/* Estilos para o menu de dieta */
+.diet-menu {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Controles para adicionar/remover refeições */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    z-index: 1000; /* Muito importante, não mexer nisso */
+}
+
+.control-btn:hover {
+    background: #e64a19;
+}
+
+.controls span {
+    font-size: 1.2em;
+    margin: 0 15px;
+}
+
+/* Estilo para seleção de refeição */
+.meal-selection {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.meal-selection label {
+    margin-right: 10px;
+}
+
+.meal-selection select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 120px; /* Ajuste o tamanho conforme necessário */
+}
+
+/* Estilo para as refeições */
+.meal {
+    background: #444;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.meal-header h4 {
+    margin: 0;
+}
+
+.meal-header button {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.meal-header button:hover {
+    background: #e64a19;
+}
+
+.meal-content {
+    margin-top: 10px;
+}
+
+.select-food {
+    margin-bottom: 10px;
+}
+
+.select-food label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.select-food select, .select-food input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Estilo para o total de calorias */
+.total-calories {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Exibe a seção DIETA de forma padrão */
+.diet-section {
+    width: calc(47% + 48%);
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    margin-top: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-family: 'Space Grotesk', Arial, sans-serif;
+}
+
+/* Estilo para o botão Pizza */
+.btn-pizza {
+    background: #ffcc00;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-pizza:hover {
+    background: #ffb700;
+}
+
+/* Ajusta o tamanho da fonte para consistência */
+#resultText {
+    font-size: 1.2em;
+}
+
+#resultTitle {
+    font-size: 1.5em;
+}
+
+/* Estilo para botões de refeições */
+/* Exemplo de CSS para o novo layout dos botões */
+.button-container {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.button-container .btn {
+    background-color: #2e8b57; /* Verde escuro */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.button-container .btn:hover {
+    background-color: #1c6d41; /* Tom mais escuro de verde */
+}
+
+/* Estilos para os pop-ups -----------------------------------------------------------------------*/
+.popup-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
+    left: 10px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+}
