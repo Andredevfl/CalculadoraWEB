@@ -27,14 +27,14 @@ A criação e implementação de uma versão mobile para a SmartDietas pode ampl
 
 Desafios:
 
-calc32_favicon Design Responsivo: Interface Adaptável: Garantir que a interface da calculadora e das funcionalidades de gerenciamento de refeições se ajustem adequadamente a diferentes tamanhos de tela e resoluções. A experiência do usuário deve ser fluida e consistente, independentemente do dispositivo.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Design Responsivo: Interface Adaptável: Garantir que a interface da calculadora e das funcionalidades de gerenciamento de refeições se ajustem adequadamente a diferentes tamanhos de tela e resoluções. A experiência do usuário deve ser fluida e consistente, independentemente do dispositivo.
 
-calc32_favicon Desempenho e Otimização: Desempenho em Dispositivos Móveis: Otimizar o desempenho para garantir que a aplicação funcione de forma rápida e eficiente em uma variedade de dispositivos móveis, incluindo aqueles com hardware mais limitado.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Desempenho e Otimização: Desempenho em Dispositivos Móveis: Otimizar o desempenho para garantir que a aplicação funcione de forma rápida e eficiente em uma variedade de dispositivos móveis, incluindo aqueles com hardware mais limitado.
 
-calc32_favicon Integração e Sincronização: Sincronização de Dados: Implementar funcionalidades que permitam a sincronização de dados entre a versão web e a versão mobile, garantindo que as informações sobre calorias e refeições estejam sempre atualizadas e disponíveis em ambos os formatos.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Integração e Sincronização: Sincronização de Dados: Implementar funcionalidades que permitam a sincronização de dados entre a versão web e a versão mobile, garantindo que as informações sobre calorias e refeições estejam sempre atualizadas e disponíveis em ambos os formatos.
 
-calc32_favicon Testes e Qualidade: Testes Abrangentes: Realizar testes em uma variedade de dispositivos e sistemas operacionais (iOS e Android) para identificar e corrigir problemas específicos de cada plataforma.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Testes e Qualidade: Testes Abrangentes: Realizar testes em uma variedade de dispositivos e sistemas operacionais (iOS e Android) para identificar e corrigir problemas específicos de cada plataforma.
 
-calc32_favicon Privacidade e Segurança: Proteção de Dados: Assegurar que a versão mobile respeite as melhores práticas de segurança e privacidade, protegendo os dados dos usuários contra acessos não autorizados e vulnerabilidades.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Privacidade e Segurança: Proteção de Dados: Assegurar que a versão mobile respeite as melhores práticas de segurança e privacidade, protegendo os dados dos usuários contra acessos não autorizados e vulnerabilidades.
 
-calc32_favicon Manutenção e Atualizações: Atualizações Regulares: Planejar um ciclo contínuo de manutenção e atualização para corrigir bugs, melhorar funcionalidades e adaptar-se às mudanças nas plataformas móveis.
+![calc32_favicon](https://github.com/user-attachments/assets/81773beb-14e4-48b2-9491-7cedee6d5d8f)  Manutenção e Atualizações: Atualizações Regulares: Planejar um ciclo contínuo de manutenção e atualização para corrigir bugs, melhorar funcionalidades e adaptar-se às mudanças nas plataformas móveis.
